@@ -1,24 +1,46 @@
-# README
+API REST que retorna os dados de um endereço conforme o CEP informado.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Requisitos:
 
-Things you may want to cover:
+- Validar os requests com um Token de autenticação.
+- Endpoint que recebe o cep e retorne as seguintes informações: endereço, bairro, cidade, UF e o endereço completo.
+- Salvar os ceps e endereços em um banco de dados.
 
-* Ruby version
+## Setup
 
-* System dependencies
+Instalar dependências
+```bash
+bundle install
+```
 
-* Configuration
+Setup da base de dados
+```bash
+rake db:setup
+```
 
-* Database creation
+Criar usuário
+```bash
+rails c
+User.create(email: 'john@mail.com', password: '123456')
+User.first.token
+```
 
-* Database initialization
+Iniciar aplicação
+```bash
+rails server
+```
 
-* How to run the test suite
+## Como utilizar
 
-* Services (job queues, cache servers, search engines, etc.)
+Endpoint: 
+```bash
+# Método http GET
+{base_url}/api/v1/enderecos/{cep}
+```
 
-* Deployment instructions
-
-* ...
+Usando token:
+```bash
+Content-Type: application/json
+X-User-email: {email}
+X-User-token: {token}
+```
