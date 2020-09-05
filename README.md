@@ -15,7 +15,7 @@ bundle install
 
 Setup da base de dados
 ```bash
-rake db:setup
+rails db:setup
 ```
 
 Criar usuário
